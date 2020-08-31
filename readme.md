@@ -45,16 +45,18 @@ To test the project's feature tests, run:
 phpunit
 ```
 
-To run the browser tests, you will need to update the `.env` file and set the key `APP_URL` to the URL where your server is using. Then you can run the tests with:
-
-```bash
-php artisan dusk
-```
+To run the browser tests, you will need to update the `.env` file and set the key `APP_URL` to the URL where your server is using. 
 
 If the chrome-driver's version doesn't match your browser version, you can set the driver to your specific version (e.gr. 84):
 
 ```bash
 php artisan dusk:chrome-driver 84
+```
+
+You can run the browser tests with:
+
+```bash
+php artisan dusk
 ```
 
 _(Note: You will also need Chrome installed on your machine for them to work. I installed chromium-browser on my Homestead VM following [these steps](https://laracasts.com/discuss/channels/forge/can-i-run-laravel-dusk-on-my-forge-server#reply=327364))_
