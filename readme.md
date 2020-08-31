@@ -25,6 +25,13 @@ To compile it for production, run:
 npm run prod
 ```
 
+Make a copy of [`.env.example`](env.example), rename it as `.env` and generate a new app key:
+
+```bash
+cp -a .env.example .env
+php artisan key:generate
+```
+
 To serve the files locally, add the folder to your [Homestead folders and sites](https://laravel.com/docs/7.x/homestead#configuring-homestead) or run:
 
 ```bash
