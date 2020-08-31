@@ -45,7 +45,7 @@ To test the project's feature tests, run:
 phpunit
 ```
 
-To run the browser tests, you will need to update the `.env` file and set the key `APP_URL` to the URL where your server is using. 
+To run the browser tests, you will need to update the `.env` file and set the key `APP_URL` to the URL that your server is using. 
 
 If the chrome-driver's version doesn't match your browser version, you can set the driver to your specific version (e.gr. 84):
 
