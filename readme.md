@@ -1,5 +1,7 @@
 # Desenio Test Task
 
+Live version: [https://ipapi-task.herokuapp.com/](https://ipapi-task.herokuapp.com/)
+
 ## Build and Run
 
 The project is built using Laravel 5.8 and React 16.2.
@@ -89,7 +91,7 @@ Contains the application's front end. The React code is inside the [`react`](res
 
 ## Considerations on the Client's IP
 
-Since the client's IP address can be obscured by reverse proxies and load balancers, getting it can be a bit tricky. Laravel's request object includes the method `getClientIp`, which this project uses. But this method by itself might not be enough. If there is a load balancer, its IP address needs to be included in the [trusted proxies](app/Http/Middleware/TrustProxies.php). For some services, such as Heroku, it needs to be set to trust all proxies and then ensure that only request from the load balancer can be sent to the server.
+Since the client's IP address can be obscured by reverse proxies and load balancers, getting it can be a bit tricky. Laravel's request object includes the method `getClientIp`, which this project uses. But this method by itself might not be enough. If there is a load balancer, its IP address needs to be included in the [trusted proxies](app/Http/Middleware/TrustProxies.php). Currently the trusted proxy is configured to be deployed on Heroku following [Heroku's instructions](https://devcenter.heroku.com/articles/getting-started-with-laravel#trusting-the-load-balancer).
 
 I considered using a custom method to find out the client's real IP address. But I discarded that option because it didn't seem as compliant with Laravel's philosophy as setting trusted proxies. Moreover, this solution would require additional changes to Laravel's throttle middleware if the application grew to need it.
 
