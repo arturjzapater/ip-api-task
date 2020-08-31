@@ -49,7 +49,13 @@ To run the browser tests, you will need to update the `.env` file and set the ke
 php artisan dusk
 ```
 
-_(Note: You will also need Chrome installed on your machine for them to work. If you are having trouble getting Dusk to start Chrome, try [this solution](https://laracasts.com/discuss/channels/forge/can-i-run-laravel-dusk-on-my-forge-server#reply=327364))_
+If the chrome-driver's version doesn't match your browser version, you can set the driver to your specific version (e.gr. 84):
+
+```bash
+php artisan dusk:chrome-driver 84
+```
+
+_(Note: You will also need Chrome installed on your machine for them to work. I installed chromium-browser on my Homestead VM following [these steps](https://laracasts.com/discuss/channels/forge/can-i-run-laravel-dusk-on-my-forge-server#reply=327364))_
 
 ## Project Structure
 
@@ -85,7 +91,7 @@ Contains the application's front end. The React code is inside the [`react`](res
 
 Since the client's IP address can be obscured by reverse proxies and load balancers, getting it can be a bit tricky. Laravel's request object includes the method `getClientIp`, which this project uses. But this method by itself might not be enough. If there is a load balancer, its IP address needs to be included in the [trusted proxies](app/Http/Middleware/TrustProxies.php). For some services, such as Heroku, it needs to be set to trust all proxies and then ensure that only request from the load balancer can be sent to the server.
 
-I considered using a custom method to find out the client's real IP address. But I discarded that option because it didn't seem as compliant with Laravel's philosophy as setting trusted proxies. Moreover, this solution wouldn't handle throttling by itself should the app grow to need it.
+I considered using a custom method to find out the client's real IP address. But I discarded that option because it didn't seem as compliant with Laravel's philosophy as setting trusted proxies. Moreover, this solution would require additional changes to Laravel's throttle middleware if the application grew to need it.
 
 Since in a local environment there is no external IP address, the server will use 24.48.0.1 as the client's IP (configurable in [config settings](config/dev.php)) when it is not running in production.
 
@@ -100,3 +106,5 @@ I have made the HTTP requests synchronous, because the route controller depends 
 The tests for this application are all feature and browser tests. Since all the logic is geared towards generating a proper response, it made sense to test the `IpController` as a whole using feature tests, rather than unit tests. The success of the feature tests ensures that its private functions work as they should.
 
 In order to be able to use Guzzle in the feature tests, I used dependency injection in the class `IpController`, so that it would be easy to use a mock version instead.
+
+The browser tests use Laravel Dusk, which provides an easy-to-use browser automation for testing. Dusk is configured to use ChromeDriver. So Chrome/Chromium needs to be installed to run these tests.
