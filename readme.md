@@ -4,9 +4,11 @@
 
 The project is built using Laravel 5.8 and React 16.2.
 
-To install dependencies, run:
+To clone the project and install dependencies, run:
 
 ```bash
+git clone git@github.com:arturjzapater/ip-api-task.git
+cd ip-api-task
 composer install
 npm install
 ```
