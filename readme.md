@@ -25,7 +25,7 @@ To compile it for production, run:
 npm run prod
 ```
 
-Make a copy of [`.env.example`](env.example), rename it as `.env` and generate a new app key:
+Make a copy of [`.env.example`](.env.example), rename it as `.env` and generate a new app key:
 
 ```bash
 cp -a .env.example .env
@@ -43,7 +43,7 @@ To test the project's feature tests, run:
 phpunit
 ```
 
-To run the browser tests, you will need to update the [`.env`](.env) file and set the key `APP_URL` to the URL where your server is using. Then you can run the tests with:
+To run the browser tests, you will need to update the `.env` file and set the key `APP_URL` to the URL where your server is using. Then you can run the tests with:
 
 ```bash
 php artisan dusk
