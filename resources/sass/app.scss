@@ -1,0 +1,57 @@
+body, html{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 30px;
+    font-family: "Helvetica";
+}
+
+.half-h{
+    height: 50%;
+}
+
+.full-w{
+    width: 100%;
+}
+
+.full-h{
+    height: 100%;
+}
+
+#top{
+    background: #3C1159;
+}
+
+#bottom{
+    background: #250B40;
+}
+
+#button{
+    width: 300px;
+    height: 100px;
+    color: white;
+    font-size: 30px;
+    font-family: "Helvetica";
+    line-height: 100px;
+    text-align: center;
+    background: #78419c;
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -50px;
+    border: 0;
+    border-radius: 10px;
+    outline: none;
+}
+
+#button:hover{
+    opacity: 0.9;
+}
+
+.hidden{
+    display: none;
+}
