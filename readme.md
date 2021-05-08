@@ -1,7 +1,5 @@
 # Desenio Test Task
 
-Live version: [https://ipapi-task.herokuapp.com/](https://ipapi-task.herokuapp.com/)
-
 ## Build and Run
 
 The project is built using Laravel 5.8 and React 16.2.
